@@ -51,6 +51,8 @@ int main(){
     //ataques
     int wave_1=3;
     int wave_2=3;
+    int exp_1=3;
+    int exp_2=3;
     while(t){
         if(turno%2!=0){
             cout<<"Mapa de submarinos del Jugador 1"<<endl;        
@@ -62,6 +64,8 @@ int main(){
             cout<<"3) Ataque wave en XZ"<<endl;
             cout<<"4) Ataque wave en YZ"<<endl;
             cout<<"5) Ataque Expansive"<<endl;
+            cout<<"WAVE DISPONIBLES: "<<wave_1<<endl;
+            cout<<"EXPANSIVE DISPONIBLES: "<<exp_1<<endl;
             int des;
             cin>>des;
             if(des==1){
@@ -82,42 +86,62 @@ int main(){
                 Normal(cubo2,x,y,z);
                 turno++;
                 }
-            }else if(des==2&&wave_1>0){
-                cout<<"Ingrese la coordenada en Z:";
-                int z;
-                cin>>z;
-                if(z<0||z>11){
-                    cout<<"Dato no valido";
+            }else if(des==2){
+                if(wave_1>0){
+                     cout<<"Ingrese la coordenada en Z:";
+                     int z;
+                     cin>>z;
+                     if(z<0||z>11){
+                         cout<<"Dato no valido";
+                     }else{
+                         XY(cubo2,z);
+                         turno++;
+                        wave_1--;
+                     }
                 }else{
-                    XY(cubo2,z);
-                    turno++;
-                    wave_1--;
+                cout<<"No tiene mas waves"<<endl;
                 }
-            }else if(des==3&&wave_1>0){
-                cout<<"Ingrese la coordenada en Y:";
-                int y;
-                cin>>y;
-                if(y<0||y>11){
-                    cout<<"Dato no valido";
+            }else if(des==3){
+                if(wave_1>0){
+                     cout<<"Ingrese la coordenada en Y:";
+                     int y;
+                     cin>>y;
+                     if(y<0||y>11){
+                          cout<<"Dato no valido";
+                     }else{
+                         XZ(cubo2,y);
+                         turno++;
+                         wave_1--;
+                     }
                 }else{
-                    XZ(cubo2,y);
-                    turno++;
-                    wave_1--;
+                     cout<<"No tiene mas waves"<<endl;
                 }
-            }else if(des==4&&wave_1>0){
-                cout<<"Ingrese la coordenada en X:";
-                int x;
-                cin>>x;
-                if(x<0||x>11){
-                    cout<<"Dato no valido";
+            }else if(des==4){
+                if(wave_1>0){
+                     cout<<"Ingrese la coordenada en X:";
+                     int x;
+                     cin>>x;
+                    if(x<0||x>11){
+                         cout<<"Dato no valido";
+                    }else{
+                     YZ(cubo2,x);
+                     turno++;
+                     wave_1--;
+                    }
                 }else{
-                    YZ(cubo2,x);
-                    turno++;
-                    wave_1--;
+                    cout<<"No tiene waves"<<endl;
                 }
             }else if(des==5){
+                if(exp_1==0){
+                    cout<<"No tiene mas expansive"<<endl;
+                }else{
+                exp_1--;
                 turno++;
+                }
             }else{
+                if(wave_1==0){
+                    cout<<"No tiene mas waves"<<endl;
+                }
             cout<<"Dato no Valido"<<endl;
             t=false;
             }
@@ -134,6 +158,9 @@ int main(){
             cout<<"3) Ataque wave en XZ"<<endl;
             cout<<"4) Ataque wave en YZ"<<endl;
             cout<<"5) Ataque Expansive"<<endl;
+            cout<<"WAVE DISPONIBLES: "<<wave_2<<endl;
+            cout<<"EXPANSIVE DISPONIBLES: "<<exp_2<<endl;
+
             int des;
             cin>>des;
             if(des==1){
@@ -154,45 +181,59 @@ int main(){
                 Normal(cubo,x,y,z);
                 turno++;
                 }
-            }else if(des==2&&wave_2>0){
-                cout<<"Ingrese la coordenada en Z:";
-                int z;
-                cin>>z;
-                if(z<0||z>11){
-                    cout<<"Dato no valido";
+            }else if(des==2){
+                if(wave_2>0){
+                     cout<<"Ingrese la coordenada en Z:";
+                     int z;
+                     cin>>z;
+                    if(z<0||z>11){
+                         cout<<"Dato no valido";
+                    }else{
+                         XY(cubo,z);
+                         turno++;
+                         wave_2--;
+                     }
                 }else{
-                    XY(cubo,z);
-                    turno++;
-                    wave_2--;
+                     cout<<"No tiene waves"<<endl;
                 }
+            }else if(des==3){
+                if(wave_2>0){
+                     cout<<"Ingrese la coordenada en Y:";
+                     int y;
+                     cin>>y;
+                     if(y<0||y>11){
+                         cout<<"Dato no valido";
+                     }else{
+                         XZ(cubo,y);
+                         turno++;
+                         wave_2--;
+                     }
+               }else{
+                  cout<<"No tiene waves"<<endl;  
+               }
+            }else if(des==4){
+                if(wave_2>0){
+                     cout<<"Ingrese la coordenada en X:";
+                     int x;
+                     cin>>x;
+                     if(x<0||x>11){
+                         cout<<"Dato no valido";
+                     }else{
+                         YZ(cubo,x);
+                         turno++;
+                         wave_2--;
 
-            }else if(des==3&&wave_2>0){
-                cout<<"Ingrese la coordenada en Y:";
-                int y;
-                cin>>y;
-                if(y<0||y>11){
-                    cout<<"Dato no valido";
+                      }
                 }else{
-                    XZ(cubo,y);
-                    turno++;
-                    wave_2--;
-
-                }
-
-            }else if(des==4&&wave_2>0){
-                cout<<"Ingrese la coordenada en X:";
-                int x;
-                cin>>x;
-                if(x<0||x>11){
-                    cout<<"Dato no valido";
-                }else{
-                    YZ(cubo,x);
-                    turno++;
-                    wave_2--;
-
+                    cout<<"No tiene mas waves"<<endl;   
                 }
             }else if(des==5){
-                
+                if(exp_2==0){
+                    cout<<"No tiene mas expansive"<<endl;
+                }else{
+                    exp_2--;   
+                    turno++;
+                }
             }else{
             cout<<"Dato no Valido"<<endl;
             t=false;
