@@ -313,7 +313,7 @@ void XY(int*** cubo,int z){
 //[x][y][z]
 //[i][j][z]
     for(int i=0;i<12;i++){
-        for(int j=0;i<12;j++){
+        for(int j=0;j<12;j++){
             if(cubo[i][j][z]==1){
                  cout<<"Destruyo un barco en la posicion x: "<<i<<" y: "<<j<<" z: "<<z;
                  cout<<endl;
@@ -329,7 +329,7 @@ void XZ(int*** cubo,int y){
 //[x][y][z]
 //[i][y][j]
     for(int i=0;i<12;i++){
-        for(int j=0;i<12;j++){
+        for(int j=0;j<12;j++){
             if(cubo[i][y][j]==1){
                  cout<<"Destruyo un barco en la posicion x: "<<i<<" y: "<<y<<" z: "<<j;
                  cout<<endl;
@@ -347,7 +347,7 @@ void YZ(int*** cubo,int x){
 //[x][y][z]
 //[x][i][j]
     for(int i=0;i<12;i++){
-        for(int j=0;i<12;j++){
+        for(int j=0;j<12;j++){
             if(cubo[x][i][j]==1){
                  cout<<"Destruyo un barco en la posicion x: "<<x<<" y: "<<i<<" z: "<<j;
                  cout<<endl;
